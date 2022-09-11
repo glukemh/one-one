@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-const HeadTag = () => {
+const Meta = () => {
   return (
     <Head>
       <title>1 to 1</title>
@@ -13,4 +13,4 @@ const HeadTag = () => {
   )
 }
 
-export default HeadTag
+export default Meta

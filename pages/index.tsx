@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
-import HeadTag from '../components/head-tag'
+import Meta from '../components/meta'
 import HomeContent from '../components/home-content'
 
 const Home: NextPage = () => {
   return (
     <>
-      <HeadTag />
+      <Meta />
       <HomeContent />
     </>
   )
