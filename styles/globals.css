@@ -4,9 +4,11 @@
 
 :root {
   --primary-color: #202020;
-  --secondary-color: darkslategray;
-  --primary-contrast-color: white;
+  --secondary-color: #303030;
+  --primary-contrast-color: snow;
   --secondary-contrast-color: whitesmoke;
+  --primary-accent-color: steelblue;
+  --secondary-accent-color: darkslategrey;
 }
 
 body {
@@ -26,10 +28,12 @@ a {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary-color: whitesmoke;
+    --primary-color: snow;
     --secondary-color: antiquewhite;
     --primary-contrast-color: #303030;
     --secondary-contrast-color: #202020;
+    --primary-accent-color: darkslategrey;
+    --secondary-accent-color: steelblue;
     color-scheme: dark;
   }
 }

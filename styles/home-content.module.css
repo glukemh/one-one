@@ -1,3 +1,5 @@
-.card {
-  background: var(--secondary-contrast-color);
+.container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
 }
