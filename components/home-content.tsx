@@ -1,17 +1,19 @@
 import Card from './card'
 import H2 from './h2'
+import GridTemplate from './grid-template'
 import styles from '../styles/home-content.module.css'
 
 const HomeContent = () => {
   return (
     <main>
       <section className={styles.container} aria-label="Blog Posts">
-        <Card>
-          <H2>Blog Post 1</H2>
+        <GridTemplate gridMinColumn="15rem" gridGap="1rem" gridRepeat="auto-fill">
           {[1, 2, 3].map(item => (
-            <div key={item}>{item}</div>
+            <Card key={item}>
+              <H2>Blog {item}</H2>
+            </Card>
           ))}
-        </Card>
+        </GridTemplate>
       </section>
     </main>
   )
