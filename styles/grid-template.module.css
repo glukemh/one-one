@@ -1,0 +1,11 @@
+.grid-template-column {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-repeat, auto-fill), minmax(var(--grid-min-column, 10rem), var(--grid-max-column, 1fr)));
+  gap: var(--grid-gap, 1rem);
+}
+
+.grid-template-row {
+  display: grid;
+  grid-template-rows: repeat(var(--grid-repeat, auto-fill), minmax(var(--grid-min-column, 10rem), var(--grid-max-column, 1fr)));
+  gap: var(--grid-gap, 1rem);
+}
