@@ -7,7 +7,10 @@ const HomeContent = () => {
   return (
     <main>
       <section className={styles.container} aria-label="Blog Posts">
-        <GridTemplate gridMinColumn="15rem" gridGap="1rem" gridRepeat="auto-fill">
+        <GridTemplate
+          template={{ columns: { '--repeat-columns': 3 }, rows: {} }}
+          style={{ width: '100%', paddingInline: '10rem', gap: '2rem' }}
+        >
           {[1, 2, 3].map(item => (
             <Card key={item}>
               <H2>Blog {item}</H2>
