@@ -1,20 +1,16 @@
-import { SVGProps } from 'react'
+import { SVGProps, ReactNode } from 'react'
 
-const TextSVG = ({
-  text,
-  textElProps,
-  svgElProps,
-  symbolElProps,
-  children,
-}: {
+type TextSVGProps = {
   text: string
-  textElProps: SVGProps<SVGTextElement>
-  svgElProps: SVGProps<SVGSVGElement>
   symbolElProps: SVGProps<SVGSymbolElement>
-  children: React.ReactNode
-}) => {
+  children: ReactNode
+  textElProps: SVGProps<SVGTextElement> | { ref: (ref: SVGTextElement) => void }
+  svgElProps?: SVGProps<SVGSVGElement>
+}
+
+const TextSVG = ({ text, textElProps, svgElProps, symbolElProps, children }: TextSVGProps) => {
   return (
-    <svg {...svgElProps}>
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" {...svgElProps}>
       <symbol {...symbolElProps}>
         <text {...textElProps}>{text}</text>
       </symbol>
