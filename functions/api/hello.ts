@@ -17,6 +17,8 @@ export async function onRequest(context: Context) {
     next, // used for middleware or to fetch assets
     data, // arbitrary space for passing data between middlewares
   } = context
-  const info = JSON.stringify({ data: 'Hello World' })
-  return new Response(info)
+  const info = JSON.stringify({ data: 'Hello World...' })
+  return new Response(info, {
+    headers: { 'content-type': 'application/json' },
+  })
 }
