@@ -1,13 +1,4 @@
-interface Context {
-  request: any
-  env?: any
-  params?: any
-  waitUntil?: any
-  next?: any
-  data?: any
-}
-
-export async function onRequest(context: Context) {
+export const onRequest: PagesFunction<any, string, any> = context => {
   // Contents of context object
   const {
     request, // same as existing Worker API
@@ -17,7 +8,9 @@ export async function onRequest(context: Context) {
     next, // used for middleware or to fetch assets
     data, // arbitrary space for passing data between middlewares
   } = context
-  const info = JSON.stringify({ data: 'Hello World...' })
+  const { searchParams } = new URL(request.url)
+  const name = searchParams.get('name')
+  const info = JSON.stringify({ data: `Hello ${name}` })
   return new Response(info, {
     headers: { 'content-type': 'application/json' },
   })
