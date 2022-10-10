@@ -4,16 +4,19 @@ import H2 from './h2'
 import styles from '../styles/home.module.css'
 import TextSVG from './text-symbol-svg'
 
-const HomeContent = () => {
+interface HomeContentProps {
+  metadata: Record<string, string>[]
+}
+
+const HomeContent = ({ metadata }: HomeContentProps) => {
   // svg text element ref list
   // const [getComputedStyle, setGetComputedStyle] = useState<
   //   (elt: Element, pseudoElt?: string | null | undefined) => CSSStyleDeclaration
   // >(() => () => ({ fontSize: '16px' } as CSSStyleDeclaration))
 
-  const [blogs, setBlogs] = useState<number[]>([1, 2, 3, 4, 5, 6, 7])
   const textElRefs = useRef<SVGTextElement[]>([])
   const [fontSizes, setFontSizes] = useState<number[]>(textElRefs.current.map(() => 16))
-
+  console.log(metadata)
   useEffect(() => {
     setFontSizes(textElRefs.current.map(el => parseInt(getComputedStyle(el).fontSize)))
   }, [])
@@ -21,19 +24,19 @@ const HomeContent = () => {
     <main>
       <section aria-label="Blog Posts">
         <div className={styles['main-grid']}>
-          {[1, 2, 3, 4, 5, 6, 7].map((item, index) => (
-            <Card key={item}>
+          {metadata.map(({ title }, index) => (
+            <Card key={title}>
               <H2>
                 <TextSVG
-                  text={`blog ${item}`}
-                  symbolElProps={{ id: `symbol${item}` }}
+                  text={title}
+                  symbolElProps={{ id: `symbol${title}` }}
                   textElProps={{
                     x: 0,
                     y: fontSizes[index],
                     ref: (ref: SVGTextElement) => textElRefs.current.push(ref),
                   }}
                 >
-                  <use href={`#symbol${item}`} style={{ fill: 'currentcolor' }} />
+                  <use href={`#symbol${title}`} style={{ fill: 'currentcolor' }} />
                 </TextSVG>
               </H2>
             </Card>

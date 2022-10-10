@@ -3,24 +3,31 @@ import path from 'path'
 import type { NextPage } from 'next'
 import Meta from '../components/meta'
 import HomeContent from '../components/home-content'
+import extractMetadata from '../utils/extractMarkdownMetadata'
 
-const Home: NextPage = () => {
+interface HomeProps {
+  metadata: Record<string, string>[]
+}
+
+const Home = ({ metadata }: HomeProps) => {
   return (
     <>
       <Meta />
-      <HomeContent />
+      <HomeContent metadata={metadata} />
     </>
   )
 }
 
-export async function getStaticProps() {
-  const files = fs.readdirSync(path.join('posts'))
-
-  files.map(fileName => {
+export const getStaticProps = async () => {
+  const files = fs.readdirSync('posts')
+  const metadata = files.map(fileName => {
     const file = fs.readFileSync(path.join('posts', fileName), 'utf-8')
+    return extractMetadata(file).metadata
   })
   return {
-    props: {},
+    props: {
+      metadata,
+    },
   }
 }
 

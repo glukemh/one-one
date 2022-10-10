@@ -1,7 +1,7 @@
 ---
-title: 'Blog 1'
-date: 'Jan 23, 2033'
-type: 'blog'
+title: Blog 1
+date: Jan 23, 2033
+type: blog
 ---
 
 # Blog 1
