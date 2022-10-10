@@ -25,7 +25,6 @@ a {
   text-decoration: none;
 }
 
-
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-color: snow;
