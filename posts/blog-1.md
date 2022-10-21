@@ -1,5 +1,5 @@
 ---
-title: Blog 1
+title: A Long Long Time Ago
 date: Jan 23, 2033
 type: blog
 ---
